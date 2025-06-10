@@ -1,0 +1,35 @@
+body{
+  background-color: #f7f6cf;
+}
+
+.app-container {
+    max-width: 800px; /* Limit content width */
+    margin: 40px auto; /* Center the container with vertical space */
+    padding: 25px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.app-title {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+.task-summary {
+    margin-bottom: 25px;
+    font-size: 1.1em;
+    color: #666;
+}
+
+
+
+.search-bar,
+.task-form {
+    margin-bottom: 25px; /* Adds space below search bar and form */
+}
+

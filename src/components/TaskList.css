@@ -1,0 +1,11 @@
+.task-list{
+    background-color: #d3d3d3;
+    border-radius: 15px;
+}
+.task-list li { /* This targets the actual <li> element rendered by TaskItem */
+    margin-bottom: 10px; /* Adjust as needed for your desired spacing */
+}
+
+.task-list li:last-child {
+    margin-bottom: 0; /* Remove margin from the last item */
+}
