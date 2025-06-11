@@ -43,7 +43,7 @@ function TaskForm({ addTask, error }) {
             value={taskName}
             onChange={(e) => setTaskName(e.target.value)}
             placeholder="Enter task name"
-            style={{fontSize:"28px", margin:"5px"}}
+            style={{fontSize:"28px", margin:"5px", borderRadius: "10px", border:"2px solid #B2BEB5" }}
           />
           <br />
           <label htmlFor="taskName">Due Date:</label>
@@ -52,7 +52,7 @@ function TaskForm({ addTask, error }) {
             id="dueDate"
             value={dueDate}
             onChange={(e) => setDueDate(e.target.value)}
-            style={{fontSize:"28px", margin:"5px"}}
+            style={{fontSize:"28px", margin:"5px", borderRadius: "10px", border:"2px solid #B2BEB5"}}
           />
           <button type="submit" style={{fontSize:"28px", margin:"5px"}}>Next</button>
         </div>

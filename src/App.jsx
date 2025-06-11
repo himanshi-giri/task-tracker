@@ -105,7 +105,7 @@ function App() {
   return (
     <div className="app-container" >
       <h1 className="app-title">My Tasks </h1>
-      <div style={{ marginBottom: '20px', color: '#555' }}>
+      <div className="info" >
         <strong>Total tasks:</strong> {tasks.length}
         <br/>
         <strong>Status: </strong> {status} 

@@ -11,7 +11,7 @@ function TaskItem({ task, updateTask, deleteTask }) {
   // Handle task update
   const handleUpdate = (e) => {
     e.preventDefault();
-    const success = updateTask(task.id, { name: editName, priority: editPriority });
+    const success = updateTask(task.id, { name: editName, priority: editPriority, dueDate: editDueDate });
     if (success) {
       setIsEditing(false);
     }
