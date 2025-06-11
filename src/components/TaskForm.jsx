@@ -5,6 +5,7 @@ function TaskForm({ addTask, error }) {
   const [step, setStep] = useState(1);
   const [taskName, setTaskName] = useState('');
   const [priority, setPriority] = useState('Low');
+  const [dueDate, setDueDate] = useState('');
 
   // Handle form submission
   const handleSubmit = (e) => {
@@ -16,10 +17,11 @@ function TaskForm({ addTask, error }) {
       }
       setStep(2);
     } else {
-      const success = addTask({ name: taskName, priority });
+      const success = addTask({ name: taskName, priority, dueDate });
       if (success) {
         setTaskName('');
         setPriority('Low');
+        setDueDate('');
         setStep(1);
       }
     }
@@ -43,7 +45,15 @@ function TaskForm({ addTask, error }) {
             placeholder="Enter task name"
             style={{fontSize:"28px", margin:"5px"}}
           />
-          
+          <br />
+          <label htmlFor="taskName">Due Date:</label>
+          <input
+            type="date"
+            id="dueDate"
+            value={dueDate}
+            onChange={(e) => setDueDate(e.target.value)}
+            style={{fontSize:"28px", margin:"5px"}}
+          />
           <button type="submit" style={{fontSize:"28px", margin:"5px"}}>Next</button>
         </div>
       ) : (

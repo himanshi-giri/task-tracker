@@ -27,6 +27,10 @@ function App() {
             console.warn('Stored tasks are not an array, resetting to empty.');
             parsedTasks = [];
           }
+          parsedTasks = parsedTasks.map(task => ({
+            ...task,
+            dueDate: task.dueDate || '',
+          }));
         }
         setTasks(parsedTasks);
         setStatus(`Loaded ${parsedTasks.length} tasks from localStorage.`);
@@ -61,7 +65,7 @@ function App() {
       alert('Task name cannot be empty');
       return false;
     }
-    const newTask = { ...task, id: Date.now() };
+    const newTask = { ...task, id: Date.now(), dueDate: task.dueDate || '' };
     setTasks([...tasks, newTask]);
     setError('');
     console.log('Task added:', newTask);
@@ -75,7 +79,7 @@ function App() {
       return false;
     }
     setTasks(prevTasks =>
-      prevTasks.map(task => task.id === id ? { ...updatedTask, id } : task)
+      prevTasks.map(task => task.id === id ? { ...updatedTask, id, dueDate: updatedTask.dueDate ||'' } : task)
     );
     setError('');
     console.log('Task updated:', updatedTask);

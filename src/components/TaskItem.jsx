@@ -6,6 +6,7 @@ function TaskItem({ task, updateTask, deleteTask }) {
   const [editName, setEditName] = useState(task.name);
   const [editPriority, setEditPriority] = useState(task.priority);
   const [isChecked, setCheckBox] = useState(false);
+  const [editDueDate, setEditDueDate] = useState(task.dueDate || '');
 
   // Handle task update
   const handleUpdate = (e) => {
@@ -35,6 +36,12 @@ function TaskItem({ task, updateTask, deleteTask }) {
             <option value="Medium">Medium</option>
             <option value="High">High</option>
           </select>
+          <input
+            type="date"
+            value={editDueDate}
+            onChange={(e) => setEditDueDate(e.target.value)}
+            style={{ fontSize: "20px", margin: "5px" }}
+          />
           <button type="submit" style={{fontSize:"20px", margin:"5px"}}>Save</button>
           <button type="button" onClick={() => setIsEditing(false)} style={{fontSize:"20px", margin:"5px"}}>Cancel</button>
         </form>
@@ -45,11 +52,13 @@ function TaskItem({ task, updateTask, deleteTask }) {
           <span className={`priority-${task.priority.toLowerCase()}`} style={{fontSize:"25px", textDecoration: isChecked ? "line-through" : "none"}}>
             {task.name}   ({task.priority})     
           </span>
+          <input type="checkbox" checked={isChecked} onChange={(e) => {setCheckBox(e.target.value)}} style={{margin:"10px", padding:"3px", fontSize:"15px"}}/>
           <div>
             <button onClick={() => setIsEditing(true)} style={{margin:"10px", padding:"3px", fontSize:"15px"}}>Edit</button>
             
             <button onClick={() => deleteTask(task.id)}  style={{margin:"10px", padding:"3px", fontSize:"15px"}}>Delete</button>
-            <input type="checkbox" checked={isChecked} onClick={(e) => {setCheckBox(e.target.value)}} style={{margin:"10px", padding:"3px", fontSize:"15px"}}/>
+            <span>{task.dueDate && `Due: ${task.dueDate}`}</span>
+            
           </div>
         </>
       )}
